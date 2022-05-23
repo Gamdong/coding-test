@@ -20,12 +20,8 @@ class 문자열찾기 {
         int found = 0;
         str = str.toUpperCase();
         t = Character.toUpperCase(t);
-
-        for (int i = 0; i < str.length(); i++) {
-            char nChar = str.charAt(i);
-            if (nChar == t) {
-                found++;
-            }
+        for (char x : str.toCharArray()) {
+            if (x == t) found++;
         }
         return found;
     }
@@ -38,6 +34,5 @@ class 문자열찾기 {
 
         int found = T.solution(input, word);
         System.out.println(found);
-        return;
     }
 }
