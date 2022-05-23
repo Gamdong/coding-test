@@ -3,30 +3,22 @@ import java.util.Scanner;
 public class 특정문자뒤집기 {
     private String solution(String str) {
         char[] arrChar = str.toCharArray();
-        int rightIdx = arrChar.length - 1;
-        for (int i = 0; i < rightIdx; i++) {
-            char x = arrChar[i];
-            if (!Character.isAlphabetic(x)) continue;
-            if (Character.isAlphabetic(arrChar[rightIdx])) {
-                char tmp = arrChar[i];
-                arrChar[i] = arrChar[rightIdx];
-                arrChar[rightIdx] = tmp;
-            }
-            else {
-                do {
-                    rightIdx--;
-                }
-                while (!Character.isAlphabetic(arrChar[rightIdx]));
-                char tmp = arrChar[i];
-                arrChar[i] = arrChar[rightIdx];
-                arrChar[rightIdx] = tmp;
-            }
-            rightIdx--;
-        }
+        int left = 0;
+        int right = arrChar.length - 1;
 
-        String ans = "";
-        for (char x : arrChar) ans += x;
-        return ans;
+        while (left < right) {
+
+            if (!Character.isAlphabetic(arrChar[left])) left++;
+            else if (!Character.isAlphabetic(arrChar[right])) right--;
+            else {
+                char tmp = arrChar[left];
+                arrChar[left] = arrChar[right];
+                arrChar[right] = tmp;
+                left++;
+                right--;
+            }
+        }
+        return String.valueOf(arrChar);
     }
     public static void main(String[] args) {
 
