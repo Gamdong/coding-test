@@ -3,22 +3,9 @@ import java.util.Scanner;
 public class 회문문자열 {
 
     private boolean solution(String input) {
-        boolean is회문문자열 = true;
         input = input.toUpperCase();
-
-        int left = 0;
-        int right = input.length();
-        while (left <= (right / 2) && is회문문자열) {
-            if (input.charAt(left) != input.charAt(right -1)) {
-                is회문문자열 = false;
-            }
-            else {
-                left++;
-                right--;
-            }
-        }
-
-        return is회문문자열;
+        String reversed = new StringBuilder(input).reverse().toString();
+        return (input.equals(reversed));
     }
     public static void main(String[] args) {
 
