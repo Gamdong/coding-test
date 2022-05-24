@@ -7,17 +7,11 @@ public class 중복문자제거 {
 
     public String solution(String input) {
 
-        char[] chars = input.toCharArray();
-        List<Character> arr = new ArrayList<Character>();
-        for (char x : input.toCharArray()) {
-            arr.add(x);
+        String ans = "";
+        for (char x : input.toCharArray()){
+            ans = (ans.indexOf(x) == -1)? ans + x : ans;
         }
-        List<Character> ansList = arr.stream().distinct().collect(Collectors.toList());
-        StringBuilder sb = new StringBuilder();
-        ansList.forEach(x -> {
-            sb.append(x);
-        });
-        return sb.toString();
+        return ans;
     }
 
     public static void main(String[] args) {
