@@ -8,7 +8,7 @@ public class 회문문자열 {
 
         int left = 0;
         int right = input.length();
-        while (left < right && is회문문자열) {
+        while (left <= (right / 2) && is회문문자열) {
             if (input.charAt(left) != input.charAt(right -1)) {
                 is회문문자열 = false;
             }
