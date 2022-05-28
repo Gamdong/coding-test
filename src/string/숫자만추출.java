@@ -1,3 +1,5 @@
+package string;
+
 import java.util.Scanner;
 
 public class 숫자만추출 {

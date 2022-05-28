@@ -1,7 +1,6 @@
-import java.util.List;
+package string;
+
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 public class 중복문자제거 {
 

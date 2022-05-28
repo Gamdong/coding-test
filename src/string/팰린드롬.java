@@ -1,3 +1,5 @@
+package string;
+
 import java.util.Scanner;
 public class 팰린드롬 {
 

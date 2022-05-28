@@ -1,3 +1,5 @@
+package string;
+
 import java.util.Scanner;
 
 public class 문장속단어 {
