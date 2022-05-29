@@ -11,6 +11,31 @@ public class 두배열합치기 {
 
         return Arrays.stream(ans).sorted().toArray();
     }
+
+    private int[] solution2(int[] a1, int[] a2) {
+        int[] ans = new int[a1.length + a2.length];
+        int p1 = 0;
+        int p2 = 0;
+        int i = 0;
+        while(i < ans.length) {
+
+            while (p1 < a1.length && p2 < a2.length) {
+
+                if (a1[p1] < a2[p2]) {
+                    ans[i++] = a1[p1];
+                    p1++;
+                }
+                else {
+                    ans[i++] = a2[p2];
+                    p2++;
+                }
+            }
+
+            while(p1 < a1.length) ans[i++] = a1[p1++];
+            while(p2 < a2.length) ans[i++] = a2[p2++];
+        }
+        return ans;
+    }
     public static void main(String[] args) {
         두배열합치기 T = new 두배열합치기();
         Scanner in = new Scanner(System.in);
@@ -27,7 +52,7 @@ public class 두배열합치기 {
             a2[i] = in.nextInt();
         }
 
-        int[] ans = T.solution(a1, a2);
+        int[] ans = T.solution2(a1, a2);
         for (int x : ans) System.out.print(x + " ");
     }
 }
