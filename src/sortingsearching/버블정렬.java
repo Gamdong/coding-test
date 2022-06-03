@@ -1,16 +1,10 @@
 package sortingsearching;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class 선택정렬 {
+public class 버블정렬 {
 
-    private int[] solution(int[] arr) {
-        int[] ans = arr;
-        Arrays.sort(ans);
-        return ans;
-    }
-    private int[] solution2(int[] arr) {
+    private int[] solution(int n, int[]arr) {
         for (int i = 0; i < arr.length - 1; i++) {
             int lt = 0;
             int rt = 1;
@@ -27,14 +21,14 @@ public class 선택정렬 {
         return arr;
     }
     public static void main(String[] args) {
-        선택정렬 T = new 선택정렬();
+        버블정렬 T = new 버블정렬();
         Scanner in = new Scanner(System.in);
 
         int n = in.nextInt();
         int[] arr = new int[n];
         for (int i = 0; i < arr.length; i++) arr[i] = in.nextInt();
 
-        int[] ans = T.solution2(arr);
+        int[] ans = T.solution(n, arr);
         for (int x : ans) System.out.print(x + " ");
     }
 }

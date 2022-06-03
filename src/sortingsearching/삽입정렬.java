@@ -1,40 +1,41 @@
 package sortingsearching;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class 선택정렬 {
+public class 삽입정렬 {
+    private int[] solution(int n, int[]arr) {
 
-    private int[] solution(int[] arr) {
-        int[] ans = arr;
-        Arrays.sort(ans);
-        return ans;
-    }
-    private int[] solution2(int[] arr) {
-        for (int i = 0; i < arr.length - 1; i++) {
+        int target = 1;
+        while (target < arr.length) {
             int lt = 0;
-            int rt = 1;
-            while (rt < arr.length) {
+            int rt = lt + 1;
+            while (rt <= target) {
                 if (arr[lt] > arr[rt]) {
                     int tmp = arr[lt];
                     arr[lt] = arr[rt];
                     arr[rt] = tmp;
+
+                    lt = 0;
+                    rt = lt + 1;
                 }
-                lt++;
-                rt++;
+                else {
+                    lt++;
+                    rt++;
+                }
             }
+            target++;
         }
         return arr;
     }
     public static void main(String[] args) {
-        선택정렬 T = new 선택정렬();
+        삽입정렬 T = new 삽입정렬();
         Scanner in = new Scanner(System.in);
 
         int n = in.nextInt();
         int[] arr = new int[n];
         for (int i = 0; i < arr.length; i++) arr[i] = in.nextInt();
 
-        int[] ans = T.solution2(arr);
+        int[] ans = T.solution(n, arr);
         for (int x : ans) System.out.print(x + " ");
     }
 }
